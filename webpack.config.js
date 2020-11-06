@@ -8,6 +8,10 @@ module.exports = {
   entry: [
     './index.jsx',
   ],
+  devServer: {
+    contentBase: './dist',
+    hot: true,
+  },
   output: {
     path: path.join(__dirname, 'dist'),
     filename: '[name].bundle.js',

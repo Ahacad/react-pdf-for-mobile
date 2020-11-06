@@ -1,5 +1,5 @@
 import React from 'react';
 import { render } from 'react-dom';
-import Sample from './Sample';
+import All from './All';
 
-render(<Sample />, document.getElementById('react-container'));
+render(<All />, document.getElementById('react-container'));

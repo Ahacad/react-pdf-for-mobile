@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { Document, Page } from 'react-pdf/dist/esm/entry.webpack';
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 
@@ -9,65 +9,77 @@ const options = {
   cMapPacked: true,
 };
 
-export default class Sample extends Component {
-  state = {
-    file: './1.pdf',
-    numPages: null,
-    pageNumber: 1,
+
+export default function Sample(props) {
+  const [numPages, setNumPages] = useState(null);
+  const [pageNumber, setPageNumber] = useState(1);
+
+  function onDocumentLoadSuccess({ numPages }) {
+    setNumPages(numPages);
   }
 
-  onFileChange = (event) => {
-    this.setState({
-      file: event.target.files[0],
-    });
+  function changePage(offset) {
+    setPageNumber(prevPageNumber => prevPageNumber + offset);
   }
 
-  previousPage() {
-  this.setState((state) => {
-    return { pageNumber: state.pageNumber - 1 };
-  });
+  function previousPage() {
+    changePage(-1);
   }
 
-  nextPage() {
-  this.setState(state => ({
-    pageNumber: state.pageNumber + 1,
-  }))
+  function nextPage() {
+    changePage(1);
   }
 
-  onDocumentLoadSuccess = ({ numPages }) => {
-    this.setState({ numPages });
+  function previousTenPage() {
+    changePage(-10);
   }
 
-  render() {
-    return (
-      <div className="Example">
-        <div className="Example__container__document">
-          <Document
-            file={this.state.file}
-            onLoadSuccess={this.onDocumentLoadSuccess}
-            options={options}
-          >
-            <Page
-              pageNumber={this.state.pageNumber}
-            />
-          </Document>
-        </div>
-        <div>
-          <p>
-            {this.state.pageNumber}
-          </p>
-          <button
-            onClick={this.previousPage}
-          >
-              previous
-          </button>
-          <button
-            onClick={this.nextPage}
-          >
-            next
-          </button>
-        </div>
+  function nextTenPage() {
+    changePage(10);
+  }
+
+  return (
+    <>
+      <Document
+        file={props.pdf}
+        onLoadSuccess={onDocumentLoadSuccess}
+        options={options}
+      >
+        <Page pageNumber={pageNumber} />
+      </Document>
+      <div>
+        <p>
+          Page {pageNumber || (numPages ? 1 : '--')} of {numPages || '--'}
+        </p>
+        <button
+          type="button"
+          disabled={pageNumber <= 10}
+          onClick={previousTenPage}
+        >
+          10 Previous
+        </button>
+        <button
+          type="button"
+          disabled={pageNumber <= 1}
+          onClick={previousPage}
+        >
+          Previous
+        </button>
+        <button
+          type="button"
+          disabled={pageNumber >= numPages}
+          onClick={nextPage}
+        >
+          Next
+        </button>
+        <button
+          type="button"
+          disabled={pageNumber >= numPages - 10}
+          onClick={nextTenPage}
+        >
+          10 Next
+        </button>
       </div>
-    );
-  }
+    </>
+  );
 }

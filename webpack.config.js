@@ -6,7 +6,7 @@ module.exports = {
   mode: 'production',
   context: __dirname,
   entry: [
-    './index.jsx',
+    './src/index.jsx',
   ],
   devServer: {
     contentBase: './dist',
@@ -58,8 +58,7 @@ module.exports = {
       },
     }),
     new CopyWebpackPlugin([
-      { from: './index.html' },
-      { from: './sample.pdf' },
+      { from: './src/index.html' },
       { from: 'node_modules/pdfjs-dist/cmaps/', to: 'cmaps/' },
     ]),
   ],

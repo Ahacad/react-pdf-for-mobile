@@ -9,8 +9,9 @@ module.exports = {
     './src/index.jsx',
   ],
   devServer: {
-    contentBase: './dist',
+    contentBase: path.join(__dirname, 'dist'),
     hot: true,
+    port: 8001,
   },
   output: {
     path: path.join(__dirname, 'dist'),

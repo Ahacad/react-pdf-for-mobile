@@ -9,7 +9,6 @@ const options = {
   cMapPacked: true,
 };
 
-
 export default function Sample(props) {
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
@@ -19,7 +18,7 @@ export default function Sample(props) {
   }
 
   function changePage(offset) {
-    setPageNumber(prevPageNumber => prevPageNumber + offset);
+    setPageNumber((prevPageNumber) => prevPageNumber + offset);
   }
 
   function previousPage() {
@@ -49,7 +48,13 @@ export default function Sample(props) {
       </Document>
       <div>
         <p>
-          Page {pageNumber || (numPages ? 1 : '--')} of {numPages || '--'}
+          Page
+          {' '}
+          {pageNumber || (numPages ? 1 : '--')}
+          {' '}
+          of
+          {' '}
+          {numPages || '--'}
         </p>
         <button
           type="button"

@@ -1,6 +1,7 @@
 .pdfcard {
   .react-pdf__Page {
     > canvas {
+      zoom: 75%;
       width: 511px !important;
       height: 738px !important;
     }

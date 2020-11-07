@@ -1,10 +1,11 @@
 
 
 - [x] webpack hot reload
-- [ ] eslint lint
+- [x] eslint lint
 
 ------
 
+- [ ] scroolable reading page for pdf
 - [ ] card for pdf
 - [ ] react router and hash
 - [ ] index layout and styles
@@ -15,5 +16,6 @@
 
 ------
 
+- [ ] cope with textContent (clearer display)
 - [ ] speed up webpack
 - [ ] webpack bind pdf

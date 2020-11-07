@@ -5,6 +5,11 @@
 
 ------
 
+==== Design
+- [ ] UE
+- [ ] UI
+
+==== Frontend
 - [ ] scroolable reading page for pdf
 - [ ] page style for every book
 - [ ] card for pdf
@@ -16,6 +21,10 @@
 
 - [ ] publish to server
 - [ ] publish to github
+
+==== Backend
+- [ ] Database for pdf
+- [ ] api
 
 ------
 

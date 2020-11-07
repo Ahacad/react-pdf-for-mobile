@@ -1,0 +1,14 @@
+.pdfcard {
+  .react-pdf__Page {
+    > canvas {
+      width: 511px !important;
+      height: 738px !important;
+    }
+    > react-pdf__Page__textContent {
+      display: none !important;
+    }
+  }
+  > .pdfcard__bookname {
+  }
+} 
+

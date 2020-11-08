@@ -10,6 +10,7 @@ import {
 import ScrollablePdf from './ScrollablePdf';
 import nihongo from './1.pdf';
 import compiler from './2.pdf';
+import unix from './unix.pdf';
 
 export default function All() {
   return (
@@ -22,6 +23,9 @@ export default function All() {
           <li>
             <Link to="/nihongo">Nihongo</Link>
           </li>
+          <li>
+            <Link to="/unix">Unix</Link>
+          </li>
         </ul>
         <Switch>
           <Route path="/compiler">
@@ -29,6 +33,9 @@ export default function All() {
           </Route>
           <Route path="/nihongo">
             <ScrollablePdf pdf={nihongo} />
+          </Route>
+          <Route path="/unix">
+            <ScrollablePdf pdf={unix} />
           </Route>
         </Switch>
       </Router>

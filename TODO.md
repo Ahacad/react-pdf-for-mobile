@@ -19,14 +19,18 @@
 - [ ] index layout and styles
 - [ ] nodejs recursively get files
 
-- [ ] publish to server
-- [ ] publish to github
+- [x] publish to server
+- [x] publish to github
+
+- [ ] ues graphql
 
 ==== Backend
 - [ ] Database for pdf
 - [ ] api
 
-------
+------ Better
+
+- [ ] prettier
 
 - [ ] cope with textContent (clearer display)
 - [ ] speed up webpack

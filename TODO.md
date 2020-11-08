@@ -31,3 +31,9 @@
 - [ ] cope with textContent (clearer display)
 - [ ] speed up webpack
 - [ ] webpack bind pdf
+
+
+------ References
+
+- pdf.js
+- react-pdf

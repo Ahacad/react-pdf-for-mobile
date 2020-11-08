@@ -25,6 +25,14 @@ export default function ScrollablePdf(props) {
     changePage(10);
   }
 
+  function previousHundredPage() {
+    changePage(-100);
+  }
+
+  function nextHundredPage() {
+    changePage(100);
+  }
+
   return (
     <div className="scrollable-pdf">
       <div>
@@ -39,6 +47,13 @@ export default function ScrollablePdf(props) {
         </p>
         <button
           type="button"
+          disabled={pageNumber <= 100}
+          onClick={previousHundredPage}
+        >
+          Previous 100
+        </button>
+        <button
+          type="button"
           disabled={pageNumber <= 10}
           onClick={previousPage}
         >
@@ -51,6 +66,13 @@ export default function ScrollablePdf(props) {
         >
           Next
         </button>
+        <button
+          type="button"
+          disabled={pageNumber >= numPages - 100}
+          onClick={nextHundredPage}
+        >
+          Next 100
+        </button>
       </div>
       <Document
         file={pdf}
@@ -60,7 +82,7 @@ export default function ScrollablePdf(props) {
           new Array(10),
           (el, index) => (
             <Page
-              key={`page_${index +  pageNumber}`}
+              key={`page_${index + pageNumber}`}
               pageNumber={index + pageNumber}
             />
           ),
@@ -78,6 +100,13 @@ export default function ScrollablePdf(props) {
         </p>
         <button
           type="button"
+          disabled={pageNumber <= 100}
+          onClick={previousHundredPage}
+        >
+          Previous 100
+        </button>
+        <button
+          type="button"
           disabled={pageNumber <= 10}
           onClick={previousPage}
         >
@@ -89,6 +118,13 @@ export default function ScrollablePdf(props) {
           onClick={nextPage}
         >
           Next
+        </button>
+        <button
+          type="button"
+          disabled={pageNumber >= numPages - 100}
+          onClick={nextHundredPage}
+        >
+          Next 100
         </button>
       </div>
     </div>

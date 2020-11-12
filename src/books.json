@@ -1,0 +1,11 @@
+{
+  "compiler": [
+    "books/compiler/2.pdf"
+  ],
+  "unix": [
+    "books/unix/unix.pdf"
+  ],
+  "日本语": [
+    "books/日本语/1.pdf"
+  ]
+}

@@ -10,9 +10,11 @@
 - [ ] UI
 
 ==== Frontend
-- [ ] scroolable reading page for pdf
-- [ ] page style for every book
-- [ ] card for pdf
+- [ ] ues graphql
+
+- [x] scroolable reading page for pdf
+
+- [ ] use typescript
 
 - [ ] react router and hash
 
@@ -22,7 +24,10 @@
 - [x] publish to server
 - [x] publish to github
 
-- [ ] ues graphql
+- [ ] lazy load partial pdf
+
+- [ ] page style for every book
+- [ ] card for pdf
 
 ==== Backend
 - [ ] Database for pdf

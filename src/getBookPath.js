@@ -15,11 +15,11 @@ function walkDir(dir, callback) {
   });
 }
 
-walkDir('./books', (filePath) => {
-  if (books[filePath.split("/")[1]] === undefined) {
-    books[filePath.split("/")[1]] = [];
+walkDir('books', (filePath) => {
+  if (books[filePath.split('/')[1]] === undefined) {
+    books[filePath.split('/')[1]] = [];
   }
-  books[filePath.split("/")[1]].push(filePath);
+  books[filePath.split('/')[1]].push(filePath);
 });
 
-fs.writeFileSync('books.json', JSON.stringify(books, null, '  '));
+fs.writeFileSync('src/books.json', JSON.stringify(books, null, '  '));

@@ -6,39 +6,65 @@ import {
   Switch,
   Route,
   Link,
+  useRouteMatch,
+  useParams,
 } from 'react-router-dom';
 import ScrollablePdf from './ScrollablePdf';
-import nihongo from './1.pdf';
-import compiler from './2.pdf';
-import unix from './unix.pdf';
+import nihongo from '../books/nihongo/1.pdf';
+import compiler from '../books/compiler/2.pdf';
+import unix from '../books/unix/unix.pdf';
+import books from './books.json';
+
+const keys = Object.keys(books);
+const values = Object.values(books);
 
 export default function All() {
   return (
     <div>
       <Router>
         <ul>
-          <li>
-            <Link to="/compiler">Compiler</Link>
-          </li>
-          <li>
-            <Link to="/nihongo">Nihongo</Link>
-          </li>
-          <li>
-            <Link to="/unix">Unix</Link>
-          </li>
+          {keys.map((key) => (
+            <li><Link to={`/${key}`}>{key}</Link></li>
+          ))}
         </ul>
+        <hr />
         <Switch>
-          <Route path="/compiler">
-            <ScrollablePdf pdf={compiler} />
-          </Route>
-          <Route path="/nihongo">
-            <ScrollablePdf pdf={nihongo} />
-          </Route>
-          <Route path="/unix">
-            <ScrollablePdf pdf={unix} />
-          </Route>
+          {keys.map((key, index) => (
+            <Route path={key}>a</Route>
+          ))}
         </Switch>
       </Router>
     </div>
   );
+}
+
+function category(props) {
+  const { path, url } = useRouteMatch();
+  return (
+    <div>
+      <ul>
+        {values[props.index].forEach((element) => (
+          <li><Link to={`${url}/${element}`}>{element}</Link></li>
+        ))}
+      </ul>
+      <Switch>
+        {values[props.index].forEach((element) => (
+          <Route></Route>
+        )}
+        <Route path="/compiler">
+          <ScrollablePdf pdf={compiler} />
+        </Route>
+      </Switch>
+    </div>
+  )
+}
+
+function onebook() {
+  let {topicId} = useParams();
+
+  return (
+    <div>
+      <ScrollablePdf pdf={} />
+    </div>
+  )
 }

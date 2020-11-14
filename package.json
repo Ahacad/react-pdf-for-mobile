@@ -4,8 +4,9 @@
   "description": "A sample page for React-PDF.",
   "private": true,
   "scripts": {
-    "build": "webpack",
-    "serve": "webpack serve",
+    "build": "yarn books && webpack",
+    "serve": "yarn books && webpack serve",
+    "books": "node src/getBookPath.js",
     "lint": "eslint src/**",
     "fix": "eslint --fix src/**"
   },

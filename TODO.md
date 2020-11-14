@@ -10,7 +10,10 @@
 - [ ] UI
 
 ==== Frontend
-- [ ] ues graphql
+= [ ] ues graphql
+
+- [ ] import books by json
+- [ ] category component, get router problem done
 
 - [x] scroolable reading page for pdf
 

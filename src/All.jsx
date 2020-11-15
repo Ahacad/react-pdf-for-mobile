@@ -10,9 +10,6 @@ import {
   useParams,
 } from 'react-router-dom';
 import ScrollablePdf from './ScrollablePdf';
-import nihongo from '../books/nihongo/1.pdf';
-import compiler from '../books/compiler/2.pdf';
-import unix from '../books/unix/unix.pdf';
 import books from './books.json';
 
 const keys = Object.keys(books);
@@ -30,7 +27,9 @@ export default function All() {
         <hr />
         <Switch>
           {keys.map((key, index) => (
-            <Route path={key}>a</Route>
+            <Route path={`/${key}`}>
+              <Category index={index} />
+            </Route>
           ))}
         </Switch>
       </Router>
@@ -38,33 +37,27 @@ export default function All() {
   );
 }
 
-function category(props) {
+function Category(props) {
   const { path, url } = useRouteMatch();
   return (
     <div>
       <ul>
-        {values[props.index].forEach((element) => (
-          <li><Link to={`${url}/${element}`}>{element}</Link></li>
+        {values[props.index].map((element) => (
+          <li><Link to={`${url}/${element}`}>{ element }</Link></li>
         ))}
       </ul>
       <Switch>
-        {values[props.index].forEach((element) => (
-          <Route></Route>
-        )}
-        <Route path="/compiler">
-          <ScrollablePdf pdf={compiler} />
-        </Route>
       </Switch>
     </div>
-  )
+  );
 }
 
-function onebook() {
-  let {topicId} = useParams();
+function Onebook(props) {
+  let { topicId } = useParams();
 
   return (
     <div>
-      <ScrollablePdf pdf={} />
+      <ScrollablePdf pdf={props.pdf} />
     </div>
-  )
+  );
 }

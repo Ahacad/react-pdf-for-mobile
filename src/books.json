@@ -2,6 +2,12 @@
   "compiler": [
     "books/compiler/2.pdf"
   ],
+  "database": [
+    "books/database/database-concept.pdf"
+  ],
+  "distributed": [
+    "books/distributed/data-intensive.pdf"
+  ],
   "nihongo": [
     "books/nihongo/1.pdf"
   ],

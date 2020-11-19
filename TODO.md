@@ -12,7 +12,8 @@
 ==== Frontend
 = [ ] ues graphql
 
-- [ ] import books by json
+==> [ ] import books by json: required but cannot load?
+
 - [ ] category component, get router problem done
 
 - [x] scroolable reading page for pdf

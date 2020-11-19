@@ -4,6 +4,7 @@ import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 import PropTypes from 'prop-types';
 import './ScrollablePdf.scss';
 
+
 export default function ScrollablePdf(props) {
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
@@ -75,7 +76,7 @@ export default function ScrollablePdf(props) {
         </button>
       </div>
       <Document
-        file={pdf}
+        file="./books/compiler/2.pdf"
         onLoadSuccess={onDocumentLoadSuccess}
       >
         {Array.from(
@@ -130,11 +131,3 @@ export default function ScrollablePdf(props) {
     </div>
   );
 }
-
-ScrollablePdf.defaultProps = {
-  pdf: '',
-};
-
-ScrollablePdf.propTypes = {
-  pdf: PropTypes.string,
-};

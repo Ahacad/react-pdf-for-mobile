@@ -11,24 +11,27 @@ import React from 'react';
 //} from 'react-router-dom';
 import ScrollablePdf from './ScrollablePdf';
 
-function importall(r) {
-  let pdfbooks = {};
-  r.keys().map((item, index) => { pdfbooks[item.replace('../books', '')] = r(item); });
-  return pdfbooks;
-}
-const pdfbooks = importall(require.context('../books', true, /\.pdf$/));
+//function importall(r) {
+  //let pdfbooks = {};
+  //r.keys().map((item, index) => pdfbooks[item.replace('./', '')] = r(item) );
+  //return pdfbooks;
+//}
+//const pdfbooks = importall(require.context('../books', true, /\.pdf$/));
 
 import books from './books.json';
 const categories = Object.keys(books);
 const values = Object.values(books);
 
-const tmp = Object.keys(pdfbooks);
-const tmp1 = Object.values(pdfbooks);
+console.log(categories)
+console.log(values)
+
+const bok = values[0][0]
+console.log(bok)
 
 export default function All() {
   return (
     <div>
-      <ScrollablePdf pdf={tmp1[1]} />
+      <ScrollablePdf pdf={bok} />
     </div>
   );
 }

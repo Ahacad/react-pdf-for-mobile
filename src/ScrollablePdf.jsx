@@ -76,7 +76,7 @@ export default function ScrollablePdf(props) {
         </button>
       </div>
       <Document
-        file="./books/compiler/2.pdf"
+        file={pdf}
         onLoadSuccess={onDocumentLoadSuccess}
       >
         {Array.from(
@@ -131,3 +131,11 @@ export default function ScrollablePdf(props) {
     </div>
   );
 }
+
+ScrollablePdf.defaultProps = {
+  pdf: '',
+};
+
+ScrollablePdf.propTypes = {
+  pdf: PropTypes.string,
+};

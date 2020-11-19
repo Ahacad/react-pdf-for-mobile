@@ -10,12 +10,12 @@ function walkDir(dir, callback) {
     if (isDirectory) {
       walkDir(dirPath, callback);
     } else {
-      callback(dirPath);
+      callback(dirPath.split('/').slice(1).join('/'));
     }
   });
 }
 
-walkDir('books', (filePath) => {
+walkDir('dist/books', (filePath) => {
   if (books[filePath.split('/')[1]] === undefined) {
     books[filePath.split('/')[1]] = [];
   }

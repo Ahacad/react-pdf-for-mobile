@@ -10,16 +10,19 @@ function walkDir(dir, callback) {
     if (isDirectory) {
       walkDir(dirPath, callback);
     } else {
-      callback(dirPath.split('/').slice(1).join('/'));
+      fs.rename(dirPath, dirPath.replace(/ /gi, '-').replace(/[,\(\)]/gi, ''), (err) => {
+        if (err) console.log(err);
+      });
+      callback(dirPath);
     }
   });
 }
 
 walkDir('dist/books', (filePath) => {
-  if (books[filePath.split('/')[1]] === undefined) {
-    books[filePath.split('/')[1]] = [];
+  if (books[filePath.split('/')[2]] === undefined) {
+    books[filePath.split('/')[2]] = [];
   }
-  books[filePath.split('/')[1]].push(filePath);
+  books[filePath.split('/')[2]].push(filePath.split('/').slice(1).join('/'));
 });
 
 fs.writeFileSync('src/books.json', JSON.stringify(books, null, '  '));

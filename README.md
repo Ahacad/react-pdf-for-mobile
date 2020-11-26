@@ -1,6 +1,8 @@
 
 
-### react-pdf-mobile
+## react-pdf-mobile
+
+![repo size](https://img.shields.io/github/repo-size/ahacad/react-pdf-for-mobile)
 
 Read pdf easily on mobile.
 
